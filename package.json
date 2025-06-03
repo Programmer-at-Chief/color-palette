@@ -1,10 +1,13 @@
 {
+  "homepage": "https://github.com/Programmer-at-Chief.github.io/color-palette",
   "name": "color-pallete",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -21,7 +24,9 @@
     "@mui/icons-material": "^7.1.0",
     "@mui/material": "^7.1.0",
     "chroma-js": "^3.1.2",
+    "color-pallete": "link:",
     "framer-motion": "^12.16.0",
+    "gh-pages": "^6.3.0",
     "rc-slider": "^11.1.8",
     "react": "^19.1.0",
     "react-color": "^2.19.3",
