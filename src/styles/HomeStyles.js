@@ -1,6 +1,5 @@
 import { styled } from "@mui/material/styles";
 import sizes from "./sizes";
-import './transition.css'
 
 export const Root = styled('div')(() => ({
   backgroundColor:  "#330033",

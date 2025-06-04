@@ -8,10 +8,10 @@ import {
   Nav,
   Palettes
 } from './styles/HomeStyles'
+
 import { Avatar, DialogTitle, List, ListItem, ListItemAvatar } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check"
 import CloseIcon from "@mui/icons-material/Close"
-
 import { blue } from '@mui/material/colors';
 import { red } from '@mui/material/colors';
 import { useState } from "react";
@@ -34,7 +34,6 @@ export default function Home({seedColors,removePalette}){
     <NavLink to='/palette/new' className = 'nav-link'> Create Palette </NavLink>
     </Nav>
     <Palettes>
-
     <AnimatePresence>
     {seedColors.map((palette) => (
       <MiniPalette 

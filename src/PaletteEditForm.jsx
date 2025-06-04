@@ -15,21 +15,29 @@ import Dialog from '@mui/material/Dialog';
 import { Avatar, DialogTitle, List, ListItem, ListItemAvatar } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check"
 import CloseIcon from "@mui/icons-material/Close"
-import seedColors from './seedColors.js'
+import { useParams } from 'react-router-dom';
 
 import { blue } from '@mui/material/colors';
 import { red } from '@mui/material/colors';
 import { useEffect } from 'react';
 import { useRef } from 'react';
 
-export default function NewPaletteForm({savePalette,PaletteList}) {
+
+export default function PaletteEditForm({PaletteList,setPalettesList}){
+  const { palette_id } = useParams();
   const maxColors = 20;
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const [currentColor,setcurrentColor] = useState('teal');
-  const [colorList,setColorList] = useState(seedColors[0].colors)
+  const palette = PaletteList.find(palette => palette.id === palette_id);
+
+  if (!palette) {
+    navigate('/');
+  }
+
+  const [colorList,setColorList] = useState(palette.colors)
   const [newName,setnewName] = useState("")
-  const [newPaletteName,setNewPaletteName] = useState("")
+  const [newPaletteName,setNewPaletteName] = useState(palette.paletteName)
   const [saved,setSaved] = useState(true)
   const [saved_dialog,setSavedDialog] = useState(false);
   const firstRender = useRef(true);
@@ -67,16 +75,23 @@ export default function NewPaletteForm({savePalette,PaletteList}) {
   }
 
   const handleSave = (emoji) => {
-    let newName = newPaletteName
-    const newPalette = {}
-    newPalette.paletteName = newName
-    newPalette.id  = newName.toLowerCase().replace(/ /g,'-')
-    newPalette.emoji = emoji
-    newPalette.colors = colorList
-    savePalette(newPalette)
+    let newName = newPaletteName;
+    const newPalette = {
+      paletteName: newName,
+      id: newName.toLowerCase().replace(/ /g, '-'),
+      emoji: emoji,
+      colors: colorList
+    };
+
+    const updatedPalettes = PaletteList.filter(p => p.id !== palette.id);
+
+    const newPalettesList = [...updatedPalettes, newPalette];
+
+    setPalettesList(newPalettesList);
+
     setSaved(true);
     navigate('/');
-  }
+  };
 
   const deleteColor =(name) => {
     setColorList(colorList.filter((color) => color.name !== name))
@@ -166,5 +181,6 @@ export default function NewPaletteForm({savePalette,PaletteList}) {
     </List>
     </Dialog>
     </div>
-  );
+  )
+
 }

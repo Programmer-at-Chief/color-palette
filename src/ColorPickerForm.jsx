@@ -7,7 +7,6 @@ const Picker = styled(ChromePicker)(() => ({
   width: "100% !important",
   marginTop: "2rem",
   marginBlock: "1rem"
-
 }))
 
 const AddColor = styled(Button)(() => ({
@@ -41,7 +40,7 @@ export default function ColorPickerForm({colorList,currentColor,addNewColor,hand
   return (
     <div>
     <Picker color={currentColor} onChangeComplete={(newColor) => updateColor(newColor)}/>
-    <ValidatorForm onSubmit={addNewColor}>
+    <ValidatorForm onSubmit={addNewColor} instantValidate= {false}>
     <ColorNameInput value={newName} onChange={handleChange} name = "color" 
     validators={["required","isColorNameUnique","isColorUnique"]}
     errorMessages={["this field is required","Color Name must be unique","Color must be unique"]}

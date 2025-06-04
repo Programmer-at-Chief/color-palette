@@ -2,7 +2,6 @@ import { DndContext, closestCenter } from "@dnd-kit/core";
 import {
   arrayMove,
   SortableContext,
-  useSortable,
   rectSortingStrategy,
 } from "@dnd-kit/sortable";
 import DraggableColorBox from "./DraggableColorBox";

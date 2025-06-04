@@ -10,7 +10,6 @@ import { PaletteBox,
   BackButton,
 } from "./styles/SingleColorPaletteStyles.js"
 
-
 export default function SingleColorPalette({seedColors}){
 
   const [format,setFormat] = useState("hex")

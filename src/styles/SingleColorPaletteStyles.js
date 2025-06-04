@@ -55,7 +55,6 @@ export const BackButton = styled(NavLink)(() => ({
   border: "none",
   paddingTop: "5px",
   textDecoration: "none",
-
 }))
 
 

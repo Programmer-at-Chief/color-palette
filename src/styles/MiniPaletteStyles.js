@@ -63,3 +63,19 @@ export const Delete = styled('div')(() => ({
   transition: "all 0.3s ease-in-out"
 }
 }))
+
+export const Edit = styled('div')(() => ({
+  '& .editicon':{
+  color: "white",
+  backgroundColor: "green",
+  width: "25px",
+  height: "25px",
+  position: "absolute",
+  left : "0px",
+  top: "0px",
+  padding: "10px",
+  zIndex: "10",
+  opacity: "0",
+  transition: "all 0.3s ease-in-out"
+}
+}))

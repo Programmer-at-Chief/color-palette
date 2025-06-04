@@ -11,7 +11,6 @@ import {
   SelectContainer
 } from './styles/NavBarStyles'
 
-
 export default function NavBar({level,changeLevel,handleChange,format,slide}){
   const [open,setOpen] = useState(false)
 

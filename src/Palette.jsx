@@ -37,7 +37,6 @@ export default function Palette({seedColors}){
 
   return (
     <PaletteBox >
-    {/* navbar */}
     <NavBar level = {level} changeLevel= {changeLevel} handleChange={changeFormat} format={format} slide = {true}/>
     <PaletteColors >
     {colorBoxes}

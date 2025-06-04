@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import { motion } from "framer-motion";
 
 import {
@@ -9,13 +10,20 @@ import {
   Colors,
   Emoji,
   MiniColor,
-  Delete
+  Delete,
+  Edit
 } from './styles/MiniPaletteStyles'
 
 function MiniPalette({palette,setDialogOpen,setDeleteId}) {
   const navigate = useNavigate();
+
   function go_to_palette(id){
     navigate(`/palette/${id}`)
+  }
+
+  function edit_palette(e){
+    e.stopPropagation();
+    navigate(`/palette/edit/${palette.id}`)
   }
 
   const miniColorBoxes = palette.colors.map(color => (
@@ -37,6 +45,9 @@ function MiniPalette({palette,setDialogOpen,setDeleteId}) {
     transition={{ duration: 0.5 }}
     >
     <Root onClick={() => go_to_palette(palette.id)}>
+    <Edit>
+    <EditIcon className="editicon" onClick={edit_palette}/>
+    </Edit>
     <Delete> 
 
     <DeleteIcon className="deleteicon" onClick= {handleRemove}/>
@@ -52,4 +63,4 @@ function MiniPalette({palette,setDialogOpen,setDeleteId}) {
   );
 }
 
-export default MiniPalette;
+export default React.memo(MiniPalette);
