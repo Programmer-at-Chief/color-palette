@@ -1,7 +1,7 @@
 import './App.css'
 import Palette from './Palette'
 import seedColors from './seedColors.js'
-import { Routes,Route } from 'react-router'
+import { Routes,Route } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import Home from './Home.jsx'
 import SingleColorPalette from './SingleColorPalette.jsx'
