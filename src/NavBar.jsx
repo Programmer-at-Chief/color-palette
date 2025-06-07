@@ -26,7 +26,7 @@ export default function NavBar({level,changeLevel,handleChange,format,slide}){
   return (
     <NavBarStyle>
     <Logo>
-    <a href="/"> Color Palette </a>
+    <a href="/color-palette/"> Color Palette </a>
     </Logo>
     {slide ? <div>
     <span> Level : {level} </span>
