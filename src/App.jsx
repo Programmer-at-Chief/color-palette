@@ -54,7 +54,7 @@ function App() {
 
   return (
     <AnimatePresence mode="wait">
-    <Routes location={location} key = {location.pathname}>
+    <Routes location={location} key = {location.pathname} >
     <Route exact path = '/' element = {
       <SlidePage>
       <Home seedColors = {PaletteList} removePalette = {removePalette}/>
